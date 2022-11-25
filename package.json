@@ -1,0 +1,34 @@
+{
+  "name": "nested-hierarchical-migration",
+  "version": "1.0.0",
+  "description": "An automatic framework for large-scale table migration of nested hierarchical data structures",
+  "main": "nhd-manager",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dassolkim/nested-hierarchical-migration.git"
+  },
+  "keywords": [
+    "nested-json",
+    "nested-xml",
+    "xml2json",
+    "automation",
+    "framework"
+  ],
+  "author": "dasol kim",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "fast-xml-parser": "^4.0.7",
+    "xml-js": "^1.6.11"
+  },
+  "bugs": {
+    "url": "https://github.com/dassolkim/nested-hierarchical-migration/issues"
+  },
+  "homepage": "https://github.com/dassolkim/nested-hierarchical-migration#readme"
+}
