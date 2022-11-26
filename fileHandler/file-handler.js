@@ -2,11 +2,25 @@ const fs = require('fs')
 const path = require('path')
 const dataDir = path.join('C:/Users/kimds/nodeProject', 'data/')
 
-module.exports = { writeCatalog, readCatalog, writeUrls, readUrls, writeCols,
-    readCols, writeVals, readVals, writeSourceIds, readSourceIds, removeSourceList, readDirs, readIdFile, removeIdFiles }
+module.exports = {
+    writeCatalog,
+    readCatalog,
+    writeUrls,
+    readUrls,
+    writeCols,
+    readCols,
+    writeVals,
+    readVals,
+    writeSourceIds,
+    readSourceIds,
+    removeSourceList,
+    readDirs,
+    readIdFile,
+    removeIdFiles,
+    writeJsonFile
+}
 
 function writeCatalog(data, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -15,8 +29,8 @@ function writeCatalog(data, sourceInfo) {
         const exist = fs.existsSync(dir)
         // console.log(exist)
         if (!exist) fs.mkdirSync(dir)
-        
-        const file = dir + '/' + 'p_' + sourceInfo.page + '_'+ sourceInfo.name + '.rdf'
+
+        const file = dir + '/' + 'p_' + sourceInfo.page + '_' + sourceInfo.name + '.rdf'
         console.log(`file path: ${file}`)
         fs.writeFileSync(file, data)
         if (fs.existsSync(file)) {
@@ -24,15 +38,12 @@ function writeCatalog(data, sourceInfo) {
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
-
 function readCatalog(dataDir, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -47,19 +58,17 @@ function readCatalog(dataDir, sourceInfo) {
 
         if (fs.existsSync(file)) {
             const data = fs.readFileSync(file, 'utf-8')
-            console.log(typeof (data))
+            console.log(typeof data)
             return data
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
 function writeUrls(data, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -86,7 +95,6 @@ function writeUrls(data, sourceInfo) {
 }
 
 function readUrls(dataDir, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -106,14 +114,12 @@ function readUrls(dataDir, sourceInfo) {
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
 function writeCols(data, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -139,7 +145,6 @@ function writeCols(data, sourceInfo) {
 }
 
 function readCols(dataDir, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -154,19 +159,17 @@ function readCols(dataDir, sourceInfo) {
 
         if (fs.existsSync(file)) {
             const data = fs.readFileSync(file, 'utf-8')
-            console.log(typeof (data))
+            console.log(typeof data)
             return data
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
 function writeVals(data, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -191,7 +194,6 @@ function writeVals(data, sourceInfo) {
 }
 
 function readVals(dataDir, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -206,19 +208,17 @@ function readVals(dataDir, sourceInfo) {
 
         if (fs.existsSync(file)) {
             const data = fs.readFileSync(file, 'utf-8')
-            console.log(typeof (data))
+            console.log(typeof data)
             return data
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
 function writeSourceIds(data, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -227,7 +227,8 @@ function writeSourceIds(data, sourceInfo) {
         const exist = fs.existsSync(dir)
         if (!exist) fs.mkdirSync(dir)
         // console.log(exist)
-        const file = dir + '/' + 'p_' + sourceInfo.page + '_' + sourceInfo.format + '_' + sourceInfo.name + '_sourceList.txt'
+        const file =
+            dir + '/' + 'p_' + sourceInfo.page + '_' + sourceInfo.format + '_' + sourceInfo.name + '_sourceList.txt'
         console.log(`file path: ${file}`)
         const sources = {
             info: sourceInfo,
@@ -245,7 +246,6 @@ function writeSourceIds(data, sourceInfo) {
 }
 
 function readSourceIds(dataDir, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -255,7 +255,8 @@ function readSourceIds(dataDir, sourceInfo) {
         if (!exist) fs.mkdirSync(dir)
         // console.log(exist)
         // console.log(`directory path: ${dir}`)
-        const file = dir + '/' + 'p_' + sourceInfo.page + '_' + sourceInfo.format + '_' + sourceInfo.name + '_sourceList.txt'
+        const file =
+            dir + '/' + 'p_' + sourceInfo.page + '_' + sourceInfo.format + '_' + sourceInfo.name + '_sourceList.txt'
         console.log(`file path: ${file}`)
 
         if (fs.existsSync(file)) {
@@ -265,19 +266,17 @@ function readSourceIds(dataDir, sourceInfo) {
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
 function readIdFile(dataDir, sourceInfo, fileName) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
         const dir = dataDir + type + '/' + publisher + '/' + sourceInfo.format + '/sourceList/' + sourceInfo.dirType
-      
+
         const file = dir + '/' + fileName
         // console.log(`file path: ${file}`)
 
@@ -288,14 +287,12 @@ function readIdFile(dataDir, sourceInfo, fileName) {
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
 function readDirs(dataDir, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
@@ -318,32 +315,30 @@ function readDirs(dataDir, sourceInfo) {
 }
 
 function removeSourceList(dataDir, sourceInfo) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
         const dir = dataDir + type + '/' + publisher + '/' + sourceInfo.format + '/sourceList/' + sourceInfo.dirType
-        const file = dir + '/' + 'p_' + sourceInfo.page + '_' + sourceInfo.format + '_' + sourceInfo.name + '_sourceList.txt'
-    
+        const file =
+            dir + '/' + 'p_' + sourceInfo.page + '_' + sourceInfo.format + '_' + sourceInfo.name + '_sourceList.txt'
+
         if (fs.existsSync(file)) {
             const data = fs.unlinkSync(file)
             return data
         } else {
             return false
         }
-
     } catch (err) {
         console.log(err)
     }
 }
 
 function removeIdFiles(dataDir, sourceInfo, fileName) {
-
     try {
         const type = sourceInfo.type
         const publisher = sourceInfo.publisher
         const dir = dataDir + type + '/' + publisher + '/' + sourceInfo.format + '/sourceList/' + sourceInfo.dirType
-      
+
         const file = dir + '/' + fileName
         console.log(`file path: ${file}`)
 
@@ -353,7 +348,43 @@ function removeIdFiles(dataDir, sourceInfo, fileName) {
         } else {
             return false
         }
+    } catch (err) {
+        console.log(err)
+    }
+}
 
+function writeJsonFile(data, sourceInfo) {
+    try {
+        const type = sourceInfo.type
+        const publisher = sourceInfo.publisher
+        const dir = dataDir + type + '/' + publisher + '/' + sourceInfo.format + '/' + 'xml2json'
+        // console.log(`directory path: ${dir}`)
+        const exist = fs.existsSync(dir)
+        if (!exist) fs.mkdirSync(dir)
+        // console.log(exist)
+        const file =
+            dir +
+            '/' +
+            'p_' +
+            sourceInfo.page +
+            '_' +
+            sourceInfo.format +
+            '_' +
+            sourceInfo.name +
+            '_' +
+            sourceInfo.order +
+            '_data.json'
+        console.log(`file path: ${file}`)
+        // const urls = {
+        //     info: sourceInfo,
+        //     url: data
+        // }
+        fs.writeFileSync(file, Buffer.from(data))
+        if (fs.existsSync(file)) {
+            return true
+        } else {
+            return false
+        }
     } catch (err) {
         console.log(err)
     }

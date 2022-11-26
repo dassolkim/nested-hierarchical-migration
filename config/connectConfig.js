@@ -8,24 +8,23 @@
 // const defaultUrl = "http://114.70.235.40:28000/api/v1/"
 
 // HPC02 KDBC_demo_scale
-const workspaceId = "23f0e1d1-2eae-4774-bc2e-878c610c9528"
-const operationId = "a36aede6-33d4-40ee-82e0-98612c2fb842"
-const defaultUrl = "http://114.70.235.40:28000/api/v1/"
+const workspaceId = '23f0e1d1-2eae-4774-bc2e-878c610c9528'
+const operationId = 'a36aede6-33d4-40ee-82e0-98612c2fb842'
+const defaultUrl = 'http://114.70.235.40:28000/api/v1/'
 
-const destinationDefinitionId = "25c5221d-dce2-4163-ade9-739ef790f503"
-const sourceDefinitionId = "decd338e-5647-4c0b-adf4-da0e75f5a750"
-const csvSourceDefinitnionId = "778daa7c-feaf-4db6-96f3-70fd645acc77"
-const status = "active"
+const destinationDefinitionId = '25c5221d-dce2-4163-ade9-739ef790f503'
+const sourceDefinitionId = 'decd338e-5647-4c0b-adf4-da0e75f5a750'
+const csvSourceDefinitnionId = '778daa7c-feaf-4db6-96f3-70fd645acc77'
+const status = 'active'
 
 const jsonConnectSource = {
-    "url": "http://geoserver.nottinghamcity.gov.uk/opendata/geojson/ncc_Recycling_Centres.json",
-    "format": "json",
-    "provider": {
-        "storage": "HTTPS"
+    url: 'http://geoserver.nottinghamcity.gov.uk/opendata/geojson/ncc_Recycling_Centres.json',
+    format: 'json',
+    provider: {
+        storage: 'HTTPS'
     },
-    "dataset_name": "json_table_1"
+    dataset_name: 'json_table_1'
 }
-
 
 exports.workspaceId = workspaceId
 exports.defaultUrl = defaultUrl
